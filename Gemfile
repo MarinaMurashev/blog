@@ -7,7 +7,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'pg'
 gem 'redcarpet'
-gem 'rails_12factor', group: :production
+gem 'devise'
 
-gem 'spring',        group: :development
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'factory_girl'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
 
