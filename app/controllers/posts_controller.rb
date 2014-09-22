@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
+    redirect_to posts_path unless @post
   end
 
   def index
