@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'redcarpet'
 gem 'devise'
+gem 'pygments.rb'
 
 group :development, :test do
   gem 'rspec-rails'
