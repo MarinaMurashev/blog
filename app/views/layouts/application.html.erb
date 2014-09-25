@@ -6,13 +6,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if user_signed_in? %>
-    <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-  <% end %>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <% if user_signed_in? %>
+        <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+      <% end %>
+    </div>
+  </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
   <%= javascript_include_tag 'application' %>
