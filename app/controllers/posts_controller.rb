@@ -10,6 +10,17 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+    redirect_to posts_path unless @post
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.update_attributes post_params
+    redirect_to post_path @post.id
+  end
+
   def new
     @post = Post.new
   end

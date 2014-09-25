@@ -51,4 +51,66 @@ describe PostsController do
 
   end
 
+  describe "GET#new" do
+
+  end
+
+  describe "PUT#update" do
+    let!(:post) { create :post, id: 123, title: "a title", body: "a body" }
+
+    context "as signed in user" do
+      let(:user) { create :user }
+      before { sign_in user }
+
+      it "can update post title" do
+        put :update, id: 123, post: { title: "another title" }
+        expect(post.reload.title).to eq "another title"
+      end
+
+      it "can update post body" do
+        put :update, id: 123, post: { body: "another body" }
+        expect(post.reload.body).to eq "another body"
+      end
+
+      it "redirects to post show page when update was successful" do
+        put :update, id: 123, post: { body: "another body" }
+        expect(response).to redirect_to(post_path 123)
+      end
+    end
+
+    context "as non signed in user" do
+      it "does not update" do
+        put :update, id: 123, post: { title: "antoher title", body: "another body" }
+        expect(post.reload.title).to eq "a title"
+        expect(post.reload.body).to eq "a body"
+      end
+    end
+  end
+
+  describe "GET#edit" do
+    let(:post) { create :post, id: 123 }
+
+    context "as signed in user" do
+      let(:user) { create :user }
+      before { sign_in user }
+
+      it "sets @post to the correct post" do
+        get :edit, id: post.id
+        expect(assigns :post).to eq post
+      end
+
+      it "redirects to posts path when post id is invalid" do
+        get :edit, id: 456
+        expect(response).to redirect_to(posts_path)
+      end
+    end
+
+    context "as non signed in user" do
+      it "redirects" do
+        get :edit, id: post.id
+        expect(response).to be_redirect
+      end
+    end
+  end
+
 end
