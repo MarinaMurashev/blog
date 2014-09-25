@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe PostsController do
+
   describe "GET#show" do
     context "valid post id param" do
       let(:post) { create :post, id: 123 }
@@ -25,6 +26,14 @@ describe PostsController do
       post_2 = create :post
       get :index
       expect(assigns :posts).to match_array [post_1, post_2]
+    end
+
+    it "sorts @posts by create date descending" do
+      post_1 = create :post, created_at: Time.current - 2.day
+      post_2 = create :post, created_at: Time.current - 3.day
+      post_3 = create :post, created_at: Time.current
+      get :index
+      expect(assigns :posts).to eq [post_3, post_1, post_2]
     end
 
   end
