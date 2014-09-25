@@ -52,7 +52,12 @@ describe PostsController do
   end
 
   describe "GET#new" do
-
+    context "as non signed in user" do
+      it "redirects" do
+        get :new
+        expect(response).to be_redirect
+      end
+    end
   end
 
   describe "PUT#update" do
