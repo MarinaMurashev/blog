@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, :body, presence: true
+  validates_presence_of :title, :body
+  validates_uniqueness_of :title, :body
 
 end
