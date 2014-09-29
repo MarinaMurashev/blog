@@ -30,6 +30,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      flash.now[:error] = @post.errors.full_messages.join(", ")
       render action: "new"
     end
   end
