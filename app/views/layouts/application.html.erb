@@ -7,17 +7,16 @@
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <%= link_to "Home", posts_path, class: "navbar-brand" %>
       </div>
-      <% if user_signed_in? %>
-        <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-      <% end %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) if user_signed_in? %></li>
+        <li><%= link_to("Create New Post", new_post_path) if user_signed_in? %></li>
+      </ul>
     </div>
   </nav>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <div class="container">
     <%= yield %>
