@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new post_params
     if @post.save
+      flash[:notice] = "Post has been saved successfully."
       redirect_to root_path
     else
       flash.now[:error] = @post.errors.full_messages.join(", ")
