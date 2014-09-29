@@ -115,7 +115,7 @@ describe PostsController do
 
       it "redirects to posts path when post id is invalid" do
         get :edit, id: 456
-        expect(response).to redirect_to(posts_path)
+        expect(response).to redirect_to posts_path
       end
     end
 
@@ -123,6 +123,30 @@ describe PostsController do
       it "redirects" do
         get :edit, id: post.id
         expect(response).to be_redirect
+      end
+    end
+  end
+
+  describe "DELETE#destroy" do
+    before { @post = create :post }
+
+    context "as signed in user" do
+      before { sign_in(create :user) }
+
+      it "deletes specified post" do
+        delete :destroy, id: @post.id
+        expect(Post.where(id: @post.id)).to be_empty
+      end
+
+      it "redirects to posts path" do
+        delete :destroy, id: @post.id
+        expect(response).to redirect_to posts_path
+      end
+    end
+
+    context "as non signed in user" do
+      it "does not delete post" do
+        expect { delete :destroy, id: @post.id }.not_to change(Post, :count)
       end
     end
   end
