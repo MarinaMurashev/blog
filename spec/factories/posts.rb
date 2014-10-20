@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :post do
-    title "The meaning of life"
-    body  "The meaning of Life is the following. Listen closely..."
+    sequence(:title) { |n| "The meaning of life #{n}" }
+    sequence(:body) { |n| "The meaning of Life is the number #{n}" }
   end
 end
