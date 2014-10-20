@@ -111,6 +111,8 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.0)
+    sitemap_generator (5.0.5)
+      builder
     slop (3.6.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -151,4 +153,5 @@ DEPENDENCIES
   rails_12factor
   redcarpet
   rspec-rails
+  sitemap_generator
   uglifier (>= 1.3.0)

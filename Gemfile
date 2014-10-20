@@ -9,6 +9,7 @@ gem 'pg'
 gem 'redcarpet'
 gem 'devise'
 gem 'pygments.rb'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'rspec-rails'
