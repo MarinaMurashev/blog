@@ -8,8 +8,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu-server-12042-x64-vbox4210"
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
-  config.librarian_puppet.puppetfile_dir = "puppet"
   config.librarian_puppet.placeholder_filename = ".keep"
+
+  config.vm.provision :shell, :path => "puppet/bootstrap.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
