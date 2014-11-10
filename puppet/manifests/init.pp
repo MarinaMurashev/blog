@@ -1,34 +1,24 @@
-# $username = "vagrant"
-# $home = "/home/${username}"
+# --- Postgres -----------------------------------------------------------------
+class { 'postgresql::server': }
 
-# Exec {
-#   path => "${home}/bin:/usr/local/rbenv/bin:/usr/local/rbenv/shims::/usr/local/rbenv/shims/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# }
+# --- Ruby ---------------------------------------------------------------------
 
-# class { 'rbenv': }
+class { 'rbenv': }
 
-# rbenv::plugin { 'ianheggie/rbenv-binstubs': }
-# rbenv::plugin { 'sstephenson/rbenv-gem-rehash':
-#   before => Rbenv::Gem["bundler-2.1.1"]
-# }
+rbenv::plugin { 'sstephenson/ruby-build': }
+rbenv::plugin { 'ianheggie/rbenv-binstubs':}
+rbenv::plugin { 'sstephenson/rbenv-gem-rehash':
+  before => Rbenv::Gem["bundler-2.1.1"]
+}
 
-# rbenv::build { '2.1.1': global => true }
+rbenv::build { '2.1.1': global => true }
 
-# file { "${home}/bin":
-#   ensure => directory,
-#   owner => $username
-# }
+file { "/home/vagrant/bin":
+  ensure => directory,
+  owner => "vagrant"
+}
 
-# file { "${home}/.bundle":
-#   ensure => directory,
-#   owner => $username
-# }
-
-# exec {"bundle install":
-#   command   => "bundle --binstubs=${home}/bin --path=${home}/.bundle",
-#   cwd       => "/vagrant",
-#   user      => $username,
-#   unless    => "test 1 -eq `/usr/local/rbenv/shims/bundle check | grep 'satisfied$' | wc -l`",
-#   timeout   => 0,
-#   require   => [Rbenv::Build["2.1.1"], File["${home}/bin"], File["${home}/.bundle"]]
-# }
+file { "/home/vagrant/.bundle":
+  ensure => directory,
+  owner => "vagrant"
+}

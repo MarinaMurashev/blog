@@ -4,11 +4,20 @@ FORGE
     jdowning-rbenv (1.3.0)
       puppetlabs-git (>= 0.0.3)
       puppetlabs-stdlib (>= 4.1.0)
+    puppetlabs-apt (1.7.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-concat (1.1.2)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
     puppetlabs-git (0.2.0)
       puppetlabs-vcsrepo (>= 0.1.0)
+    puppetlabs-postgresql (4.0.0)
+      puppetlabs-apt (< 2.0.0, >= 1.1.0)
+      puppetlabs-concat (< 2.0.0, >= 1.1.0)
+      puppetlabs-stdlib (~> 4.0)
     puppetlabs-stdlib (4.3.2)
     puppetlabs-vcsrepo (1.1.0)
 
 DEPENDENCIES
   jdowning-rbenv (= 1.3.0)
+  puppetlabs-postgresql (= 4.0.0)
 
