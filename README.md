@@ -3,6 +3,7 @@
 This is the code for building my blog: https://marinamurashev.com/
 
 To get it up and running on your own:
+
 1. install Vagrant: http://www.vagrantup.com/
 2. install VirtualBox: https://www.virtualbox.org/
 3. clone this repository and `cd` into the repository's directory
