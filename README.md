@@ -1,4 +1,4 @@
-== README
+**Blog README**
 
 This is the code for building my blog: http://marinamurashev.com/
 
