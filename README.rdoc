@@ -1,3 +1,0 @@
-== README
-
-The code for building my blog: https://marinamurashev.herokuapp.com/

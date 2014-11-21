@@ -8,8 +8,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu-server-12042-x64-vbox4210"
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
-  config.librarian_puppet.placeholder_filename = ".keep"
-
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   config.vm.provision :shell, :path => "puppet/bootstrap.sh"
