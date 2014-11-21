@@ -10,6 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.librarian_puppet.placeholder_filename = ".keep"
 
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
+
   config.vm.provision :shell, :path => "puppet/bootstrap.sh"
 
   config.vm.provision :puppet do |puppet|

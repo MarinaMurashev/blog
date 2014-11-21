@@ -11,19 +11,40 @@ package { "libpq-dev": ensure => present }
 package { "nodejs": ensure => present }
 
 # --- Postgres -----------------------------------------------------------------
-class { 'postgresql::server': }
+class { 'postgresql::server':
+  postgres_password => 'password'
+}
+
+postgresql::server::role { 'postgres':
+  password_hash => postgresql_password('postgres', 'password'),
+  superuser => true,
+  require => Class['postgresql::server']
+}
+
+postgresql::server::db { 'blog_development':
+  user     => 'postgres',
+  password => postgresql_password('postgres', 'password'),
+  require => Postgresql::Server::Role['postgres']
+}
+
+postgresql::server::db { 'blog_test':
+  user     => 'postgres',
+  password => postgresql_password('postgres', 'password'),
+  require => Postgresql::Server::Role['postgres']
+}
 
 # --- Ruby ---------------------------------------------------------------------
 
 class { 'rbenv': }
 
 rbenv::plugin { 'sstephenson/ruby-build': }
-rbenv::plugin { 'ianheggie/rbenv-binstubs':}
-rbenv::plugin { 'sstephenson/rbenv-gem-rehash':
-  before => Rbenv::Gem["bundler-2.1.1"]
-}
+rbenv::plugin { 'ianheggie/rbenv-binstubs': }
+rbenv::plugin { 'sstephenson/rbenv-gem-rehash': }
 
-rbenv::build { '2.1.1': global => true }
+rbenv::build { '2.1.1':
+  global => true,
+  require => [Rbenv::Plugin['sstephenson/ruby-build'], Rbenv::Plugin['ianheggie/rbenv-binstubs'], Rbenv::Plugin['sstephenson/rbenv-gem-rehash']]
+}
 
 file { "/home/vagrant/bin":
   ensure => directory,
