@@ -70,7 +70,7 @@ describe PostsController do
   end
 
   describe "PUT#update" do
-    let!(:post) { create :post, id: 123, title: "a title", body: "a body" }
+    let!(:post) { create :post, id: 123, title: "a title", body: "a body <!--- truncate --->" }
 
     context "as signed in user" do
       let(:user) { create :user }
@@ -82,21 +82,21 @@ describe PostsController do
       end
 
       it "can update post body" do
-        put :update, id: 123, post: { body: "another body" }
-        expect(post.reload.body).to eq "another body"
+        put :update, id: 123, post: { body: "another body <!--- truncate --->" }
+        expect(post.reload.body).to eq "another body <!--- truncate --->"
       end
 
       it "redirects to post show page when update was successful" do
-        put :update, id: 123, post: { body: "another body" }
+        put :update, id: 123, post: { body: "another body <!--- truncate --->" }
         expect(response).to redirect_to(post_path 123)
       end
     end
 
     context "as non signed in user" do
       it "does not update" do
-        put :update, id: 123, post: { title: "antoher title", body: "another body" }
+        put :update, id: 123, post: { title: "antoher title", body: "another body <!--- truncate --->" }
         expect(post.reload.title).to eq "a title"
-        expect(post.reload.body).to eq "a body"
+        expect(post.reload.body).to eq "a body <!--- truncate --->"
       end
     end
   end

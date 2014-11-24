@@ -10,6 +10,7 @@ gem 'redcarpet'
 gem 'devise'
 gem 'pygments.rb'
 gem 'sitemap_generator'
+gem 'truncate_html'
 
 group :development, :test do
   gem 'rspec-rails'
