@@ -18,16 +18,8 @@ describe Post do
     end
 
     it "has a unique body" do
-      post1 = create :post, body: "test <!--- truncate --->"
-      expect(build :post, body: "test <!--- truncate --->").to_not be_valid
-    end
-
-    it "is invalid when it doesn't contain '<!--- truncate --->'" do
+      post1 = create :post, body: "test"
       expect(build :post, body: "test").to_not be_valid
-    end
-
-    it "is valid when it contains '<!--- truncate --->'" do
-      expect(build :post, body: "test <!--- truncate --->").to be_valid
     end
   end
 end
