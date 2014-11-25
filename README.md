@@ -26,9 +26,10 @@ To get it up and running on your own:
 12. In your browser, go to http://localhost:3000/users/sign_in and sign in using the same credentials you just set up.
 13. Either click on 'Create New Post' or go to http://localhost:3000/posts/new to create a new post. The post should be in Markdown format.
 
-Once you have the app up and running, and would like to use it for your own website, please make the following changes:
+**If you would like to use it for your own website, please make the following changes**
 
 * Either delete, or modify to be specific to your needs, the google site verification code. It is located in the app/views/layouts/_google_site_verification.html.erb
   * If you're deleting it, remember to also delete the reference to it at app/views/layouts/application.html.erb. Delete the line `<%= render "layouts/google_site_verification" %>`
 * Either delete, or modify to be specific to your needs, the google analytics code. It is located in the app/assets/javascripts/google_analytics.js
 * Update the About Me page to be relevant to you. Its location: app/views/pages/about.html.erb
+* Update the default url to your own. Change the line `config.action_mailer.default_url_options = { host: 'www.marinamurashev.com' }` in config/environments/production.rb
