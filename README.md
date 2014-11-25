@@ -32,4 +32,5 @@ To get it up and running on your own:
   * If you're deleting it, remember to also delete the reference to it at app/views/layouts/application.html.erb. Delete the line `<%= render "layouts/google_site_verification" %>`
 * Either delete, or modify to be specific to your needs, the google analytics code. It is located in the app/assets/javascripts/google_analytics.js
 * Update the About Me page to be relevant to you. Its location: app/views/pages/about.html.erb
-* Update the default url to your own. Change the line `config.action_mailer.default_url_options = { host: 'www.marinamurashev.com' }` in config/environments/production.rb
+* Update the default url in production to your own. Change the line `config.action_mailer.default_url_options = { host: 'www.marinamurashev.com' }` in config/environments/production.rb
+* Update the default url in the SitemapGenerator configuration. Update the line `SitemapGenerator::Sitemap.default_host = 'http://www.marinamurashev.com'` in config/sitemap.rb
