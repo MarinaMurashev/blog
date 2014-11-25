@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = 'http://marinamurashev.com'
+SitemapGenerator::Sitemap.default_host = 'http://www.marinamurashev.com'
 SitemapGenerator::Sitemap.create do
   add '/posts', changefreq: 'daily', priority: 0.9
   add '/about', changefreq: 'weekly'
