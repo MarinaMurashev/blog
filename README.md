@@ -31,3 +31,4 @@ Once you have the app up and running, and would like to use it for your own webs
 * Either delete, or modify to be specific to your needs, the google site verification code. It is located in the app/views/layouts/_google_site_verification.html.erb
   * If you're deleting it, remember to also delete the reference to it at app/views/layouts/application.html.erb. Delete the line `<%= render "layouts/google_site_verification" %>`
 * Either delete, or modify to be specific to your needs, the google analytics code. It is located in the app/assets/javascripts/google_analytics.js
+* Update the About Me page to be relevant to you. Its location: app/views/pages/about.html.erb
