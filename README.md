@@ -1,6 +1,6 @@
 **Blog README**
 
-This is the code for building my blog: http://marinamurashev.com/
+This is the code for building my blog: http://www.marinamurashev.com/
 
 To get it up and running on your own:
 
