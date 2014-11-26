@@ -4,4 +4,4 @@
 # User-agent: *
 # Disallow: /
 Sitemap:
-http://www.marinamurashev.com/sitemaps/sitemap_index.xml.gz
+http://www.marinamurashev.com/sitemap.xml.gz
