@@ -31,5 +31,9 @@ describe Post do
     it "is valid when it contains Post's PREVIEW_BREAK" do
       expect(build :post, body: "test #{truncate}").to be_valid
     end
+
+    it "is invalid when it contains *only* Post's PREVIEW_BREAK" do
+      expect(build :post, body: truncate).to_not be_valid
+    end
   end
 end

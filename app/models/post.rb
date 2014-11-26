@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :title, :body
   validates_uniqueness_of :title, :body
-  validates :body, format: { with: /#{PREVIEW_BREAK}/,
-    message: "must contain the truncation indicator #{PREVIEW_BREAK}" }
+  validates :body, format: { with: /.+#{PREVIEW_BREAK}/,
+    message: "must contain the truncation indicator #{PREVIEW_BREAK} following some text" }
 
 end
