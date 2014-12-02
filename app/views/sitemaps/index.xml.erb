@@ -1,0 +1,21 @@
+<% host = "http://www.marinamurashev.com" %>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc><%= host %></loc>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc><%= "#{host}#{about_path}" %></loc>
+      <priority>0.5</priority>
+   </url>
+   <url>
+      <loc><%= "#{host}#{posts_path}" %></loc>
+   </url>
+   <% @posts.each do |post| %>
+     <url>
+        <loc><%= "#{host}/posts/#{post.id}" %></loc>
+        <lastmod><%= post.updated_at.strftime("%Y-%m-%d") %></lastmod>
+     </url>
+   <% end %>
+</urlset>
