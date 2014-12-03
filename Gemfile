@@ -9,6 +9,7 @@ gem 'pg', '~> 0.17.1'
 gem 'redcarpet', '~> 3.1.2'
 gem 'devise', '~> 3.3.0'
 gem 'pygments.rb', '~> 0.6.0'
+gem 'mail_form', '~>1.5.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
