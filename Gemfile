@@ -9,7 +9,7 @@ gem 'pg', '~> 0.17.1'
 gem 'redcarpet', '~> 3.1.2'
 gem 'devise', '~> 3.3.0'
 gem 'pygments.rb', '~> 0.6.0'
-gem 'mail_form', '~>1.5.0'
+gem 'mail_form', '~> 1.5.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
@@ -17,6 +17,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.0'
   gem 'database_cleaner', '~> 1.3.0'
   gem 'librarian-puppet', '~> 2.0.0'
+  gem 'letter_opener', '~> 1.2.0'
 end
 
 group :production do
