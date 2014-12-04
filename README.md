@@ -34,3 +34,4 @@ To get it up and running on your own:
 * Update the About Me page to be relevant to you. Its location: app/views/pages/about.html.erb
 * Update the default url in production to your own. Change the line `config.action_mailer.default_url_options = { host: 'www.marinamurashev.com' }` in config/environments/production.rb
 * Update the host in the sitemap view. Update the line `<% host = "http://www.marinamurashev.com" %>` in app/views/sitemaps/index.xml.erb.
+* I have the website send Contact emails using Sendgrid, with the application deployed to Heroku. If your setup is different, you'll have to update the config/environments/production.rb for the following setting: `config.action_mailer.smtp_settings`
