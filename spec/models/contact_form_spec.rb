@@ -24,6 +24,7 @@ describe ContactForm do
 
     it "is invalid when nickname is not blank" do
       expect(build(:contact_form, nickname: "I am a bot").deliver).to be_falsey
+      expect(build(:contact_form, nickname: "I am a bot")).to_not be_valid
     end
   end
 end
