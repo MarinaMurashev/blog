@@ -7,11 +7,12 @@ class ContactFormsController < ApplicationController
 
   def create
     @contact_form = ContactForm.new(contact_form_params)
-    @contact_form.request = request
+
     if @contact_form.deliver
-      flash[:notice] = 'Thank you for your message!'
+      flash[:notice] = "Thank you for your message!"
       redirect_to :root
     else
+      flash.now[:error] = @contact_form.errors.full_messages.join(", ")
       render :new
     end
   end

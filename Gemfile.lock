@@ -65,6 +65,9 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.2.0)
       launchy (~> 2.2)
+    letter_opener_web (1.2.3)
+      letter_opener (~> 1.0)
+      rails (>= 3.2)
     librarian (0.1.2)
       highline
       thor (~> 0.15)
@@ -172,6 +175,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.4.0)
   jquery-rails (~> 3.1.1)
   letter_opener (~> 1.2.0)
+  letter_opener_web (~> 1.2.0)
   librarian-puppet (~> 2.0.0)
   mail_form (~> 1.5.0)
   pg (~> 0.17.1)

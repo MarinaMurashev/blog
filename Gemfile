@@ -18,6 +18,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'librarian-puppet', '~> 2.0.0'
   gem 'letter_opener', '~> 1.2.0'
+  gem 'letter_opener_web', '~> 1.2.0'
 end
 
 group :production do
