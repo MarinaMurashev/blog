@@ -1,4 +1,6 @@
 class ContactForm < MailForm::Base
+  MAIL_TO_ADDRESS = "marina@marinamurashev.com"
+
   attribute :name, validate: true
   attribute :email, validate: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message, validate: true
@@ -9,7 +11,7 @@ class ContactForm < MailForm::Base
   def headers
     {
       subject: "My Contact Form",
-      to: "marina@marinamurashev.com",
+      to: MAIL_TO_ADDRESS,
       from: %("#{name}" <#{email}>)
     }
   end
