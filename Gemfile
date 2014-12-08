@@ -10,7 +10,7 @@ gem 'redcarpet', '~> 3.1.2'
 gem 'devise', '~> 3.3.0'
 gem 'pygments.rb', '~> 0.6.0'
 gem 'mail_form', '~> 1.5.0'
-gem 'social-buttons', '~> 0.3.9'
+gem 'shareable', '~> 1.1.4'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

@@ -3,7 +3,9 @@
 <h2 class="text-left"><%= @post.title %></h2>
 <p class="text-left"><%= markdown @post.body %></p>
 
-<p class="text-left">
-  <%= tweet_button via: "MarinaMurashev", count: "horizontal", text: "#{@post.title}:" %>
-  <%= like_button(ENV["FB_APP_ID"], share: "true") %>
-</p>
+<div class="row share-buttons">
+  <%= twitter_button via: "MarinaMurashev", count: "horizontal", text: "#{@post.title}:" %>
+  <%= google_plus_button %>
+  <%= linkedin_button %>
+  <%= facebook_button share: "true" %>
+</div>
