@@ -5,5 +5,5 @@
 
 <p class="text-left">
   <%= tweet_button via: "MarinaMurashev", count: "horizontal", text: "#{@post.title}:" %>
-  <%= like_button(ENV["FB_APP_ID"]) %>
+  <%= like_button(ENV["FB_APP_ID"], share: "true") %>
 </p>
