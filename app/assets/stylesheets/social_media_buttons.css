@@ -3,6 +3,11 @@
   padding-bottom: 30px;
   float: right;
 }
+
 .IN-widget{
   margin-right: 20px;
+}
+
+iframe.twitter-follow-button{
+  margin-top: 10px;
 }

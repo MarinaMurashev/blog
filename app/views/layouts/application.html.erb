@@ -19,6 +19,13 @@
         <li><%= link_to("Create New Post", new_post_path) if user_signed_in? %></li>
         <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) if user_signed_in? %></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="twitter-follow-button" href="https://twitter.com/MarinaMurashev" data-show-count="false" data-lang="en" data-size="large">
+            Follow @MarinaMurashev
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 
