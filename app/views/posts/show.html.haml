@@ -1,6 +1,6 @@
 - @title = @post.title
-= link_to("Edit", edit_post_path(@post.id)) if user_signed_in?
-= link_to("Delete", post_path(@post.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?'}) if user_signed_in?
+= link_to("Edit", edit_post_path(@post.slug)) if user_signed_in?
+= link_to("Delete", post_path(@post.slug), method: :delete, data: { confirm: 'Are you certain you want to delete this?'}) if user_signed_in?
 %h2.text-left= @post.title
 %p.text-left= markdown @post.body
 .row.share-buttons

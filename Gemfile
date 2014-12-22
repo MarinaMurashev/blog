@@ -12,6 +12,7 @@ gem 'pygments.rb', '~> 0.6.0'
 gem 'mail_form', '~> 1.5.0'
 gem 'shareable', '~> 1.1.4'
 gem 'haml', '~> 4.0.5'
+gem 'friendly_id', '~> 5.0.4'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

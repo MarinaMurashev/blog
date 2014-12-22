@@ -1,5 +1,5 @@
 - @title = "Blog Posts"
 - @posts.each do |post|
-  %h3.text-left= link_to post.title, post_path(post.id)
+  %h3.text-left= link_to post.title, post_path(post.slug)
   %h5.text-left Posted on: #{post.created_at.strftime("%B %-d, %Y")}
   %p.text-left #{markdown(post.body.split(Post::PREVIEW_BREAK).first)}...

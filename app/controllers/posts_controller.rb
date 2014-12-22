@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def show
-    @post = Post.find_by(id: params[:id])
-    redirect_to posts_path unless @post
+    @post = Post.friendly.find(params[:id])
+  rescue
+    redirect_to posts_path
   end
 
   def index
@@ -11,14 +12,15 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
-    redirect_to posts_path unless @post
+    @post = Post.friendly.find(params[:id])
+  rescue
+    redirect_to posts_path
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.update_attributes post_params
-    redirect_to post_path @post.id
+    redirect_to post_path @post.slug
   end
 
   def new
@@ -37,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.destroy if @post
     redirect_to posts_path
   end
