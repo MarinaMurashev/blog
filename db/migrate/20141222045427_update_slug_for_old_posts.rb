@@ -1,9 +1,12 @@
-class Post < ActiveRecord::Base
-end
-
 class UpdateSlugForOldPosts < ActiveRecord::Migration
+  class Post < ActiveRecord::Base
+  end
+
   def up
-    Post.find_each(&:save)
+    Post.all.each do |post|
+      post.slug = post.title.parameterize
+      post.save
+    end
   end
 
   def down
