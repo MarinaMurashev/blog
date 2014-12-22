@@ -10,5 +10,5 @@
     %loc= "#{@host}#{posts_path}"
   - @posts.each do |post|
     %url
-      %loc= "#{@host}/posts/#{post.id}"
+      %loc= "#{@host}/posts/#{post.slug}"
       %lastmod= post.updated_at.strftime("%Y-%m-%d")
