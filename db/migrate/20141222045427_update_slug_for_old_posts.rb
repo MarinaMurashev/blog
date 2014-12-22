@@ -1,7 +1,7 @@
-class UpdateSlugForOldPosts < ActiveRecord::Migration
-  class Post < ActiveRecord::Base
-  end
+class Post < ActiveRecord::Base
+end
 
+class UpdateSlugForOldPosts < ActiveRecord::Migration
   def up
     Post.find_each(&:save)
   end
