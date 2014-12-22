@@ -1,0 +1,14 @@
+!!! XML
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  %url
+    %loc= @host
+    %priority 1
+  %url
+    %loc= "#{@host}#{about_path}"
+    %priority 0.5
+  %url
+    %loc= "#{@host}#{posts_path}"
+  - @posts.each do |post|
+    %url
+      %loc= "#{@host}/posts/#{post.id}"
+      %lastmod= post.updated_at.strftime("%Y-%m-%d")

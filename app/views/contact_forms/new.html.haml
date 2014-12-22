@@ -1,0 +1,14 @@
+= form_for @contact_form, html: { role: "form" } do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: "form-control"
+  .form-group
+    = f.label :message
+    = f.text_area :message, size: '50x10', class: "form-control"
+  .form-group.hidden
+    = f.label :nickname
+    = f.text_field :nickname
+  = f.submit 'Submit', class: "btn btn-default"

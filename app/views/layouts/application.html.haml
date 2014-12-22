@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    = render "layouts/google_site_verification"
+    %title Marina Murashev's Blog
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default{role: "navigation"}
+      .container
+        .navbar-header
+          = link_to "Home", posts_path, class: "navbar-brand"
+        %ul.nav.navbar-nav
+          %li= link_to "About", about_path
+          %li= link_to "Contact Me", new_contact_form_path
+          %li= link_to("Create New Post", new_post_path) if user_signed_in?
+          %li= link_to("Sign Out", destroy_user_session_path, method: :delete) if user_signed_in?
+        %form.navbar-form.navbar-left{role: "search"}
+          .form-group
+            %input#search-field.form-control{placeholder: "Search", :type => "text"}
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a.twitter-follow-button{"data-lang" => "en", "data-show-count" => "false", "data-size" => "large", href: "https://twitter.com/MarinaMurashev"}
+              Follow @MarinaMurashev
+    - if flash[:notice]
+      .alert.alert-success{role: "alert"}= flash[:notice]
+    - if flash[:error]
+      .alert.alert-danger{role: "alert"}= flash[:error]
+    .container
+      = yield
+  = javascript_include_tag 'application'
