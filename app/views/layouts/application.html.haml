@@ -2,7 +2,7 @@
 %html
   %head
     = render "layouts/google_site_verification"
-    %title Marina Murashev's Blog
+    %title= @title || "Marina Murashev's Blog"
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
   %body
