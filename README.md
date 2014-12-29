@@ -36,3 +36,4 @@ To get it up and running on your own:
 * Update the host in the sitemap view. Update the line `<% host = "http://www.marinamurashev.com" %>` in app/views/sitemaps/index.xml.erb.
 * I have the website send Contact emails using Sendgrid, with the application deployed to Heroku. If your setup is different, you'll have to update the config/environments/production.rb for the following setting: `config.action_mailer.smtp_settings`
 * Change the MAIL_TO_ADDRESS constant in app/models/contact_form.rb to use your own.
+* If you would like to continue using Disqus for post comments, go to app/views/posts/_comments.html.haml and replace your own Disqus shortname where it says 'marinamurashev'. Otherwise, delete that file, and the reference to it in app/views/posts/show.html.haml
